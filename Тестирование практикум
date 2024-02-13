@@ -1,0 +1,120 @@
+Вариант 3
+
+
+задача 4
+
+#include <iostream>
+#include <string>
+
+bool isPalindrome(int num) {
+    std::string numStr = std::to_string(num);
+    int n = numStr.length();
+    for (int i = 0; i < n / 2; ++i) {
+        if (numStr[i] != numStr[n - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int number;
+
+    std::cout << "Введите натуральное число: ";
+    std::cin >> number;
+
+    if (isPalindrome(number)) {
+        std::cout << "Число " << number << " является палиндромом" << std::endl;
+    } else {
+        std::cout << "Число " << number << " не является палиндромом" << std::endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+задача 5 
+
+def rearrange_array(arr):
+    negative_elements = [x for x in arr if x < 0]
+    positive_elements = [x for x in arr if x >= 0]
+    
+    return negative_elements + positive_elements
+
+# Исходный массив
+original_array = [5, -3, 2, -8, 9, -4, 6]
+
+# Переупорядоченный массив
+rearranged_array = rearrange_array(original_array)
+
+print("Исходный массив:", original_array)
+print("Переупорядоченный массив:", rearranged_array)
+
+
+
+задача 6 
+
+def sum_of_digits(number):
+    return sum(int(digit) for digit in str(number))
+
+def compare_digit_sums(num1, num2):
+    sum1 = sum_of_digits(num1)
+    sum2 = sum_of_digits(num2)
+    
+    if sum1 > sum2:
+        return f"Сумма цифр числа {num1} больше суммы цифр числа {num2}"
+    elif sum2 > sum1:
+        return f"Сумма цифр числа {num2} больше суммы цифр числа {num1}"
+    else:
+        return "Суммы цифр в обоих числах равны"
+
+
+num1 = int(input("Введите первое натуральное число: "))
+num2 = int(input("Введите второе натуральное число: "))
+
+
+
+
+
+
+
+
+
+result = compare_digit_sums(num1, num2)
+print(result)
+
+
+
+
+Задача 2 
+
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Введите трехзначное число n (100-999): ";
+    std::cin >> n;
+    
+  
+    int last_digit = n % 10;
+    
+    
+    int temp = n / 10;
+    int reversed_temp = 0;
+    while (temp != 0) {
+        reversed_temp = (reversed_temp * 10) + (temp % 10);
+        temp = temp / 10;
+    }
+    
+    // Формируем число x
+    int x = (last_digit * 100) + reversed_temp;
+    
+    std::cout << "Число x после операции равно: " << x << std::endl;
+
+    return 0;
+}
